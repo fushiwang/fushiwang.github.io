@@ -151,3 +151,10 @@ h2 {
   padding-left: 0;
   margin-left: 0;
 }
+
+/* Remove underline on nav hover */
+.masthead__menu-item a:hover,
+.masthead__menu-item a:focus,
+.masthead__menu-item a:active {
+  text-decoration: none !important;
+}
