@@ -93,7 +93,6 @@ a {
 
 a:hover {
   color: #aecbfa;
-  text-decoration: underline;
 }
 
 h1, h2, h3, h4 {
@@ -106,61 +105,7 @@ h2 {
 }
 
 /* =========================================================
-   Navigation: right-aligned, boxed menu items
-   ========================================================= */
-
-/* Push nav links to the right */
-.greedy-nav .visible-links {
-  margin-left: auto;
-}
-
-/* Boxed navigation items */
-.masthead__menu-item a {
-  display: inline-block;
-  padding: 0.45em 0.9em;
-  margin-left: 0.5em;
-
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 8px;
-
-  background: rgba(255, 255, 255, 0.03);
-  color: #e6e6e6;
-
-  transition: all 0.15s ease-in-out;
-}
-
-/* Hover state */
-.masthead__menu-item a:hover {
-  background: rgba(138, 180, 248, 0.15);
-  border-color: rgba(138, 180, 248, 0.5);
-  color: #ffffff;
-  text-decoration: none;
-}
-
-/* Active (current page) */
-.masthead__menu-item.selected a {
-  background: rgba(138, 180, 248, 0.25);
-  border-color: rgba(138, 180, 248, 0.7);
-  color: #ffffff;
-}
-
-/* Keep site title (name) unboxed */
-.masthead__menu-item--lg a {
-  border: none;
-  background: none;
-  padding-left: 0;
-  margin-left: 0;
-}
-
-/* Remove underline on nav hover */
-.masthead__menu-item a:hover,
-.masthead__menu-item a:focus,
-.masthead__menu-item a:active {
-  text-decoration: none !important;
-}
-
-/* =========================================================
-   Navigation: right-aligned, boxed menu items
+   Navigation: right-aligned with separators (NO boxes)
    ========================================================= */
 
 .greedy-nav {
@@ -176,38 +121,36 @@ h2 {
 
 .greedy-nav .visible-links li {
   white-space: nowrap;
+  position: relative;
 }
 
-/* Boxed navigation items */
+/* Nav links */
 .masthead__menu-item a {
-  display: inline-block;
-  padding: 0.45em 0.9em;
-  margin-left: 0.5em;
-
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 8px;
-
-  background: rgba(255, 255, 255, 0.03);
+  padding: 0.25em 0.6em;
   color: #e6e6e6;
-
-  transition: all 0.15s ease-in-out;
 }
 
-/* Hover */
+/* Remove underline on nav hover */
 .masthead__menu-item a:hover,
-.masthead__menu-item a:focus {
-  background: rgba(138, 180, 248, 0.15);
-  border-color: rgba(138, 180, 248, 0.5);
-  color: #ffffff;
+.masthead__menu-item a:focus,
+.masthead__menu-item a:active {
   text-decoration: none !important;
-}
-
-/* Active page */
-.masthead__menu-item.selected a {
-  background: rgba(138, 180, 248, 0.25);
-  border-color: rgba(138, 180, 248, 0.7);
   color: #ffffff;
 }
 
-/* Site title stays unboxed */
-.masthead
+/* Vertical separator between items (except first and title) */
+.masthead__menu-item:not(.masthead__menu-item--lg)::before {
+  content: "|";
+  color: rgba(255, 255, 255, 0.35);
+  margin: 0 0.6em;
+}
+
+/* Highlight current page subtly */
+.masthead__menu-item.selected a {
+  color: #aecbfa;
+}
+
+/* Keep site title clean (no separator) */
+.masthead__menu-item--lg::before {
+  content: none;
+}
