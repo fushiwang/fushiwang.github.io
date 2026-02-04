@@ -5,14 +5,14 @@
  * This file controls what is imported from /_sass
  *
  * Note that the files are processed in the order they are imported, so they are partly
-   sorted by the dependencies. Also, the first two lines of the file are required by Jekyll.
+ * sorted by the dependencies. Also, the first two lines of the file are required by Jekyll.
  */
 
 @import
     "vendor/breakpoint/breakpoint",
 
+    /* Core theme (dark only — light mode removed) */
     "themes",
-    "theme/{{ site.site_theme | default: 'default' | append: '_light' }}",
     "theme/{{ site.site_theme | default: 'default' | append: '_dark' }}",
 
     "include/mixins",
@@ -42,11 +42,65 @@
     "vendor/font-awesome/brands"
 ;
 
-/* --- Global font override: Garamond everywhere --- */
+/* =========================================================
+   Global font override: Garamond everywhere
+   ========================================================= */
 html, body,
 h1, h2, h3, h4, h5, h6,
 p, li, a, span, div,
 nav, header, footer,
 button, input, textarea, select {
   font-family: "EB Garamond", "Garamond", "Times New Roman", serif !important;
+}
+
+/* =========================================================
+   Dark gradient background (soft academic dark)
+   ========================================================= */
+html {
+  background: linear-gradient(
+    180deg,
+    #1a1c20 0%,
+    #14161a 45%,
+    #0f1115 100%
+  );
+  color-scheme: dark;
+}
+
+body {
+  background: transparent;
+  color: #e6e6e6;
+}
+
+/* =========================================================
+   Lift main content slightly for readability
+   ========================================================= */
+.page,
+.page__content,
+.content,
+main {
+  background: rgba(20, 22, 26, 0.75);
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+/* =========================================================
+   Links & headings (clean academic contrast)
+   ========================================================= */
+a {
+  color: #8ab4f8;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #aecbfa;
+  text-decoration: underline;
+}
+
+h1, h2, h3, h4 {
+  color: #f1f1f1;
+}
+
+h2 {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 0.3em;
 }
