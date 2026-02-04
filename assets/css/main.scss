@@ -104,3 +104,8 @@ h2 {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   padding-bottom: 0.3em;
 }
+
+/* Push nav links to the right */
+.greedy-nav .visible-links {
+  margin-left: auto;
+}
