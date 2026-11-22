@@ -45,7 +45,7 @@ nav a[aria-current="page"] { color:var(--red); text-decoration:underline }
 .profile { display:grid; grid-template-columns:minmax(13rem,16rem) minmax(0,1fr); gap:clamp(2rem,6vw,5rem); padding:clamp(2.25rem,6vw,4.5rem) 0 }
 .identity { border-right:1px solid var(--line); padding-right:1.4rem }
 .identity h1 { font-size:clamp(2.1rem,4vw,3rem); margin:0 0 1.3rem }
-.portrait { width:8rem; height:auto; aspect-ratio:4/5; object-fit:cover; border-radius:.35rem; display:block }
+.portrait { width:8rem; height:auto; aspect-ratio:4/5; object-fit:cover; border-radius:50%; display:block }
 .profile-facts { padding:0; margin:1.5rem 0 0; list-style:none; font:.94rem/1.55 "Helvetica Neue",Arial,sans-serif }
 .profile-facts li { display:flex; align-items:flex-start; gap:.65rem; margin:.65rem 0 }
 .profile-facts svg { flex:none; margin-top:.19rem; fill:none; stroke:var(--red); stroke-width:1.65; stroke-linejoin:round; stroke-linecap:round }
