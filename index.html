@@ -3,38 +3,29 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Fushi Wang is a BA/MS student at Boston University studying economics and mathematics. Research papers, data, code, and curriculum vitae.">
+<meta name="description" content="Fushi Wang studies economics and mathematics at Boston University.">
 <title>Fushi Wang · Economics</title>
 <link rel="stylesheet" href="academic/site.css">
+<script>
+const sectionPages = { "#research": "publications/index.html", "#data": "data/index.html", "#contact": "contact/index.html" };
+const previousSection = sectionPages[location.hash];
+if (previousSection) location.replace(previousSection);
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header><div class="wrap bar"><a class="signature" href="#main">Fushi Wang</a>
-<nav aria-label="Main navigation"><a href="#research">Research</a><a href="#data">Data &amp; code</a><a href="academic/fushi-wang-cv.pdf">CV</a><a href="#contact">Contact</a></nav></div></header>
-<main class="wrap" id="main">
-<div class="hero"><div class="label">Economics · Boston University</div>
+<header><div class="wrap bar">
+<a class="signature" href="index.html">Fushi Wang</a>
+<nav aria-label="Main navigation"><a href="index.html" aria-current="page">Home</a> <a href="publications/index.html">Research</a> <a href="data/index.html">Data &amp; code</a> <a href="cv/index.html">CV</a> <a href="contact/index.html">Contact</a></nav>
+</div></header>
+<main id="main" class="wrap">
+<div class="profile">
+<div><div class="label">Boston University</div>
 <h1>Fushi Wang</h1>
-<p>I’m a BA/MS student at Boston University studying economics and mathematics. My research interests are in economic theory and econometrics, especially how we model uncertainty and compare statistical models.</p>
-<p style="margin-top:.85rem">I work with James Feigenbaum on empirical research in economic history and applied microeconomics, and I teach undergraduate mathematics discussion sections.</p>
-<div class="actions"><a href="academic/fushi-wang-cv.pdf">Curriculum vitae (PDF)</a></div></div>
-<section class="row" id="research"><h2>Research</h2><div>
-<article><h3>Dispersion-Weighted Expectation: A Probability Reweighting Framework</h3><p class="meta">In development</p><p>How does an expectation change when a few unlikely outcomes dominate its value? I study a weighting rule that depends on each probability’s distance from the mean probability mass.</p></article>
-<article><h3>Standardized Bias–Variance Decomposition for Linear Model Selection</h3><p class="meta">In development</p><p>I put bias and variance on a common scale and use simulations to compare the resulting model-selection rule with established information criteria.</p></article>
-<article><h3>County Disaster Vulnerability and Economic Recovery</h3><p class="meta">May 2026</p><p>I use U.S. county data from 2000–2005 to examine how social vulnerability relates to storm damage and subsequent changes in unemployment.</p></article>
-<article><h3>Displacement of Alcohol Consumption by Cannabis Policy</h3><p class="meta">With Ajay Raman · April 2026</p><p>We combine state cannabis policy measures with beverage-specific consumption data to study how beer, wine, and spirits consumption changes as states implement new policies.</p>
-<div class="actions"><a href="#data">Associated data and code</a></div></article>
-<details><summary>Earlier papers (4)</summary>
-<article><h3>Modeling Extremism and Information: Policy Selection and Digital Platforms</h3><p class="meta">December 2024</p><p>I extend a spatial voting model to ask how candidates choose policies when more extreme positions attract voters’ attention.</p></article>
-<article><h3>An Introduction to Spectral Graph Theory</h3><p class="meta">With Quang Nguyen · May 2024</p><p>We connect the eigenvalues of graph matrices to random walks and the PageRank algorithm.</p><div class="actions"><a href="academic/spectral-graph-theory.pdf">Read paper (PDF)</a></div></article>
-<article><h3>The Impact of Education Attainment on Investment Choices</h3><p class="meta">Co-authored · December 2023</p><p>We use IPUMS-CPS data to examine the association between years of schooling and interest income.</p></article>
-<article><h3>Predicting and Understanding Bike Usage Patterns</h3><p class="meta">Co-authored · December 2023</p><p>We compare how ordinary least squares, lasso, and ridge regression predict bike use in Washington, D.C., from weather and time of day.</p></article>
-</details></div></section>
-<section class="row" id="data"><h2>Data &amp; code</h2><div><h3>State alcohol consumption, 1994–2023</h3>
-<p class="meta">50 states and Washington, D.C. · Annual observations</p>
-<p>This extract from the cannabis policy project contains apparent consumption of beer, wine, spirits, and all beverages, measured in gallons of ethanol per capita. The source is NIAAA’s apparent alcohol consumption series, Table 4.</p>
-<p style="margin-top:.75rem">The R example plots the unweighted mean across states and D.C. for each beverage. Save both files in one folder and run <code>Rscript alcohol-trends.R</code> to generate the figure.</p>
-<div class="actions"><a href="academic/alcohol-consumption.csv" download>Download data (CSV)</a><a href="academic/alcohol-trends.R" download>Download code (R)</a></div></div></section>
-<section class="row" id="contact"><h2>Contact</h2><div><p><a href="mailto:fushi@bu.edu">fushi@bu.edu</a></p><p>Boston University · Boston, Massachusetts</p></div></section>
+<p>I’m pursuing a BA in Economics and Mathematics and an MS in Quantitative Economics at Boston University. My research interests are in economic theory and econometrics, with a focus on how we model uncertainty and compare statistical models.</p></div>
+<img class="portrait" src="academic/fushi-wang.jpg" width="910" height="1127" alt="Fushi Wang outdoors in the mountains">
+</div>
 </main>
 <footer><div class="wrap">Fushi Wang · Boston University</div></footer>
-</body></html>
+</body>
+</html>

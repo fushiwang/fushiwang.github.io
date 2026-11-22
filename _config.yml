@@ -19,3 +19,4 @@ exclude:
   - docker-compose.yaml
   - package.json
   - LICENSE
+  - temporary storage
