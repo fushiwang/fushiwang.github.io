@@ -44,8 +44,8 @@ nav a[aria-current="page"] { color:var(--red); text-decoration:underline }
 }
 .profile { display:grid; grid-template-columns:minmax(13rem,16rem) minmax(0,1fr); gap:clamp(2rem,6vw,5rem); padding:clamp(2.25rem,6vw,4.5rem) 0 }
 .identity { border-right:1px solid var(--line); padding-right:1.4rem }
-.identity h1 { font-size:clamp(2.1rem,4vw,3rem); margin:0 0 1.3rem }
-.portrait { width:8rem; height:auto; aspect-ratio:4/5; object-fit:cover; border-radius:50%; display:block }
+.identity h1 { text-align:center; font-size:clamp(2.1rem,4vw,3rem); margin:0 0 1.3rem }
+.portrait { margin-inline:auto; width:8rem; height:auto; aspect-ratio:4/5; object-fit:cover; border-radius:50%; display:block }
 .profile-facts { padding:0; margin:1.5rem 0 0; list-style:none; font:.94rem/1.55 "Helvetica Neue",Arial,sans-serif }
 .profile-facts li { display:flex; align-items:flex-start; gap:.65rem; margin:.65rem 0 }
 .profile-facts svg { flex:none; margin-top:.19rem; fill:none; stroke:var(--red); stroke-width:1.65; stroke-linejoin:round; stroke-linecap:round }
@@ -56,14 +56,13 @@ nav a[aria-current="page"] { color:var(--red); text-decoration:underline }
 .reading figcaption { margin-top:1rem; color:var(--muted); font:.9rem/1.55 "Helvetica Neue",Arial,sans-serif }
 @media(max-width:680px) {
  .profile { grid-template-columns:1fr; gap:2rem }
- .identity { border:0; padding:0 0 1.5rem; border-bottom:1px solid var(--line); display:grid; grid-template-columns: minmax(6rem,8rem) minmax(0,1fr); column-gap:1.1rem; align-items:start }
- .identity h1 { grid-column:1/-1 }
+ .identity { border:0; padding:0 0 1.5rem; border-bottom:1px solid var(--line) }
  .portrait { width:min(100%,6.5rem) }
- .profile-facts { margin:0 }
+ .profile-facts { width:fit-content; margin:1.25rem auto 0 }
  .profile-facts li:first-child { margin-top:0 }
 }
 
-@media(max-width:680px) { nav { width:100%; column-gap:1rem; row-gap:.4rem } .identity { grid-template-columns:6.5rem minmax(0,1fr) } }
+@media(max-width:680px) { nav { width:100%; column-gap:1rem; row-gap:.4rem } }
 
 .reading .quote-label, .contact-details dt { font:600 .95rem/1.5 "Helvetica Neue",Arial,sans-serif; color:var(--red) }
 .reading .quote-label { margin:0 0 1rem }
