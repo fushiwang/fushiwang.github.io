@@ -1,6 +1,6 @@
 import { recordFirst } from "./tally.js";
-import { scenarios } from "./scenarios.js";
-import { tallyURL } from "./tally-config.js";
+import { scenarios } from "./scenarios.js?v=dialogs";
+
 
 const round = document.querySelector("#round");
 const pairs = [[0, 1], [1, 2], [2, 0]];
@@ -37,7 +37,7 @@ function heading(title) {
   node.focus({ preventScroll: true });
 }
 
-function start() {
+export function start() {
   games = shuffled(scenarios).slice(0, 2).map(scenario => ({ scenario, wins: [0, 0, 0] }));
   questions = shuffled(games.flatMap(game => pairs.map(pair => ({ game, pair }))));
   step = 0;
@@ -51,7 +51,7 @@ function ask() {
   const choices = element("div", "", "choices");
   round.append(element("p", game.scenario.prompt), choices);
   for (const index of shuffled(pair)) {
-    const [name, terms] = game.scenario.offers[index];
+    const name = game.scenario.offers[index];
     const choice = button("", () => {
       game.wins[index]++;
       if (pair[0] === 0) game.firstBeatSecond = index === 0;
@@ -59,7 +59,7 @@ function ask() {
       if (step === questions.length) finish();
       else ask();
     });
-    choice.append(element("strong", name), element("span", terms));
+    choice.append(element("strong", name));
     choices.append(choice);
   }
 }
@@ -72,7 +72,7 @@ function finish() {
     ? "At least one set of three picks loops back on itself. Follow the arrows below from each winner to the option it beat."
     : "In both dilemmas, your first choice beat your second and third, and your second beat your third. A theorist can put the chalk down."));
   for (const { scenario, wins, firstBeatSecond } of games) {
-    const names = scenario.offers.map(offer => offer[0]);
+    const names = scenario.offers;
     const line = element("p", "");
     line.append(element("strong", scenario.title + " · "));
     // A triangle has one win per offer exactly when it contains a cycle.
@@ -83,7 +83,6 @@ function finish() {
       line.append([0, 1, 2].sort((a, b) => wins[b] - wins[a]).map(i => names[i]).join(" → "));
     }
     round.append(line);
-    if (scenario.note) round.append(element("p", scenario.note, "meta"));
   }
   const tally = element("div", "", "tally");
   round.append(tally, button("Play another round", start));
@@ -99,8 +98,3 @@ function showTally(box, transitive) {
       element("p", `${total} first ${total === 1 ? "round" : "rounds"} recorded. Each browser contributes its first result once.`, "meta"));
   });
 }
-
-round.append(element("p", tallyURL
-  ? "Pick the offer you’d actually take each time. Your first round counts toward the anonymous visitor tally."
-  : "Pick the offer you’d actually take each time.", "meta"),
-  button("Start the game", start));

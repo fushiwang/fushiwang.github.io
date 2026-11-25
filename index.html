@@ -11,6 +11,8 @@ const sectionPages = { "#philosophy": "other/index.html#quote", "#other": "other
 const previousSection = sectionPages[location.hash];
 if (previousSection) location.replace(previousSection);
 </script>
+<link rel="stylesheet" href="other/game.css?v=dialogs">
+<script type="module" src="other/windows.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -37,7 +39,11 @@ if (previousSection) location.replace(previousSection);
 <p>Hello! I’m a BA/MS student at Boston University studying Mathematics, Economics, and Philosophy!</p>
 <p>My research interests are in economic theory, modeling, and econometrics. Most recently, I’ve studied how the prospect of attracting attention might change a political candidate’s platform, by extending the Hotelling-Downs model using probabilistic parameters that change the perception of information. And, how communities recover from storms, using link county-coded NOAA storm events from 2000–2005 to CDC Social Vulnerability Index measures and county economic outcomes! </p>
 <p>Alongside economics and mathematics, I also studied philosophy during my undergrad, enjoy playing the piano and Guzheng, and play badminton competitively!</p>
-<p class="game-invitation"><span aria-hidden="true">∗</span> A small diversion: are your preferences transitive? <a href="other/index.html#game">Play The Preference Cycle</a>, or <a href="other/index.html#coin">try your hand at The Referee’s Coin</a>.</p>
+<p class="game-invitation"><span aria-hidden="true">∗</span> Here are a few silly games I made you can play on the website:</p>
+<ul class="game-links">
+<li><a href="other/index.html#game" data-play="game" aria-haspopup="dialog">The Preference Cycle</a></li>
+<li><a href="other/index.html#coin" data-play="coin" aria-haspopup="dialog">The Referee’s Coin</a></li>
+</ul>
 </section>
 
 

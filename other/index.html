@@ -6,9 +6,8 @@
 <meta name="description" content="Two small games about preferences and probability and a favorite passage from Friedrich Nietzsche.">
 <title>Other · Fushi Wang</title>
 <link rel="stylesheet" href="../academic/site.css?v=733dc4236">
-<link rel="stylesheet" href="game.css">
-<script type="module" src="game.js"></script>
-<script type="module" src="coin.js"></script>
+<link rel="stylesheet" href="game.css?v=dialogs">
+<script type="module" src="windows.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -18,33 +17,17 @@
 </div></header>
 <main id="main" class="wrap page">
 <h1>Other</h1>
-<section id="game" class="paper experiment" aria-labelledby="game-title">
-<div class="game-text">
+<section id="game" class="paper" aria-labelledby="game-title">
 <h2 id="game-title">The Preference Cycle</h2>
-<p>An economist asks you to rank three things. You ask whether lunch is included. The economist writes down your first preference.</p>
-<p>Transitivity makes a simple demand. If you prefer <i>A</i> to <i>B</i> and <i>B</i> to <i>C</i>, you should also prefer <i>A</i> to <i>C</i>. Let’s try it with six choices across two dilemmas.<sup aria-hidden="true">∗</sup></p>
-</div>
-<div id="round" class="margin-note" aria-live="polite"></div>
-<noscript>Enable JavaScript to play the game.</noscript>
+<p>Six quick choices. Could you put your favorites in order, or do they go in a circle?</p>
+<p><a href="#game" data-play="game" aria-haspopup="dialog">Play The Preference Cycle</a></p>
 </section>
-<section id="coin" class="paper experiment" aria-labelledby="coin-title">
-<div class="game-text">
+<section id="coin" class="paper" aria-labelledby="coin-title">
 <h2 id="coin-title">The Referee’s Coin</h2>
-<p>The coin is fair… or is it? I drew one of three coins from my desk drawer. One lands heads 40% of the time, one 50%, and one 60%. Each was equally likely to get picked.</p>
-<p>Flip as often as you like, then tell me whether your coin is fair. As usual, the referee would like one more observation.<sup aria-hidden="true">†</sup></p>
-</div>
-<div class="margin-note" id="coin-note">
-<p class="meta">The same coin stays on your desk until you give your verdict.</p>
-<button type="button" id="flip">Flip the coin</button>
-<p id="ledger" role="status"></p>
-<div id="verdict" hidden>
-<button type="button" data-fair="yes">I call it fair</button>
-<button type="button" data-fair="no">I call it biased</button>
-</div>
-<div id="finding" aria-live="polite"></div>
-<noscript>Enable JavaScript to play the game.</noscript>
-</div>
+<p>The coin is fair… or is it? Flip until you’re ready to give your verdict.</p>
+<p><a href="#coin" data-play="coin" aria-haspopup="dialog">Play The Referee’s Coin</a></p>
 </section>
+<noscript>Enable JavaScript to play the games.</noscript>
 <div id="quote" class="paper reading"><p class="quote-label">My favourite quote in philosophy</p>
 <figure><blockquote>“He who has attained intellectual emancipation to any extent cannot, for a long time, regard himself otherwise than as a wanderer on the face of the earth—and not even as a traveller <em>towards</em> a final goal, for there is no such thing.”</blockquote>
 <figcaption>Friedrich Nietzsche, <cite>Human, All Too Human</cite>, vol. I<br><a href="https://www.gutenberg.org/files/51935/51935-h/51935-h.htm#:~:text=He%20who%20has%20attained%20intellectual%20emancipation">§638, “The Wanderer”</a></figcaption></figure></div>
