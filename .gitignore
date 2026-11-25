@@ -24,3 +24,6 @@ package-lock.json
 
 # Working copies supplied for site updates
 /temporary storage/
+
+# Local Cloudflare deployment state
+.wrangler/

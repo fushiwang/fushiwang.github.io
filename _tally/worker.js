@@ -6,16 +6,19 @@ export class PreferenceTally {
   }
 
   async fetch(request) {
-    const vote = await request.json();
+    const vote = request.method === "POST" ? await request.json() : null;
     if (new URL(request.url).pathname === "/coin") {
-      const { id, rate, fair, heads, tails } = vote;
-      this.sql.exec("INSERT OR IGNORE INTO coin_votes VALUES (?, ?, ?, ?)", id, Number(fair), Number(fair === (rate === 50)), heads + tails);
-      const [result] = this.sql.exec("SELECT COUNT(*) AS total, SUM(correct) AS correct, SUM(fair) AS fairCalls, SUM(flips) AS flips FROM coin_votes");
+      if (vote) {
+        const { id, rate, fair, heads, tails } = vote;
+        this.sql.exec("INSERT OR IGNORE INTO coin_votes VALUES (?, ?, ?, ?)", id, Number(fair), Number(fair === (rate === 50)), heads + tails);
+      }
+      const [result] = this.sql.exec("SELECT COUNT(*) AS total, COALESCE(SUM(correct), 0) AS correct, COALESCE(SUM(fair), 0) AS fairCalls, COALESCE(SUM(flips), 0) AS flips FROM coin_votes");
       return Response.json(result);
     }
-    const { id, transitive } = vote;
-    this.sql.exec("INSERT OR IGNORE INTO votes VALUES (?, ?)", id, Number(transitive));
-    const [result] = this.sql.exec("SELECT COUNT(*) AS total, SUM(transitive) AS transitive FROM votes");
+    if (vote) {
+      this.sql.exec("INSERT OR IGNORE INTO votes VALUES (?, ?)", vote.id, Number(vote.transitive));
+    }
+    const [result] = this.sql.exec("SELECT COUNT(*) AS total, COALESCE(SUM(transitive), 0) AS transitive FROM votes");
     return Response.json(result);
   }
 }
@@ -24,7 +27,7 @@ export default {
   async fetch(request, env) {
     const headers = {
       "Access-Control-Allow-Origin": env.SITE_ORIGIN,
-      "Access-Control-Allow-Methods": "POST, OPTIONS",
+      "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
       "Access-Control-Allow-Headers": "Content-Type",
       "Cache-Control": "no-store",
       "Vary": "Origin"
@@ -33,6 +36,11 @@ export default {
     const path = new URL(request.url).pathname;
     if (!["/", "/coin"].includes(path)) return new Response(null, { status: 404, headers });
     if (request.method === "OPTIONS") return new Response(null, { status: 204, headers });
+    const tally = env.TALLY.get(env.TALLY.idFromName("first-rounds"));
+    if (request.method === "GET") {
+      const result = await tally.fetch("https://internal" + path);
+      return new Response(result.body, { status: result.status, headers: { ...headers, "Content-Type": "application/json" } });
+    }
     if (request.method !== "POST") return new Response(null, { status: 405, headers });
     let vote;
     try {
@@ -48,7 +56,6 @@ export default {
         && [vote.heads, vote.tails].every(n => Number.isSafeInteger(n) && n >= 0)
         && Number.isSafeInteger(vote.heads + vote.tails) && vote.heads + vote.tails > 0;
     if (!valid) return new Response(null, { status: 400, headers });
-    const tally = env.TALLY.get(env.TALLY.idFromName("first-rounds"));
     const result = await tally.fetch("https://internal" + path, { method: "POST", body: JSON.stringify(vote) });
     return new Response(result.body, { status: result.status, headers: { ...headers, "Content-Type": "application/json" } });
   }
