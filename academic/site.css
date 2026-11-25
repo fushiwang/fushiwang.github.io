@@ -76,3 +76,6 @@ nav a[aria-current="page"] { color:var(--red); text-decoration:underline }
 .course-term dt { font-weight:bold }
 .course-term small { font:normal .85rem Arial,sans-serif; color:var(--muted); white-space:nowrap; margin-left:.4rem }
 .course-term dd { margin:.15rem 0 .9rem; max-width:48rem }
+
+.profile-copy .game-invitation { margin-top:1.5rem; padding-left:1.2em; position:relative; font-size:1rem; font-style:italic }
+.game-invitation span { position:absolute; left:0; color:var(--red) }

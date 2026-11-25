@@ -1,0 +1,9 @@
+{
+  "name": "fushi-preference-tally",
+  "main": "worker.js",
+  "compatibility_date": "2025-04-01",
+  "workers_dev": true,
+  "vars": { "SITE_ORIGIN": "https://fushiwang.github.io" },
+  "durable_objects": { "bindings": [{ "name": "TALLY", "class_name": "PreferenceTally" }] },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["PreferenceTally"] }]
+}

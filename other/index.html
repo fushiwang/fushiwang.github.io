@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Two small games about preferences and probability and a favorite passage from Friedrich Nietzsche.">
+<title>Other · Fushi Wang</title>
+<link rel="stylesheet" href="../academic/site.css?v=733dc4236">
+<link rel="stylesheet" href="game.css">
+<script type="module" src="game.js"></script>
+<script type="module" src="coin.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header><div class="wrap bar">
+<a class="signature" href="../index.html?v=733dc4236">Fushi Wang</a>
+<nav aria-label="Main navigation"><a href="../index.html?v=733dc4236">Home</a> <a href="../publications/index.html?v=733dc4236">Research</a> <a href="../data/index.html?v=733dc4236">Data &amp; code</a> <a href="../cv/index.html?v=733dc4236">CV</a> <a href="../contact/index.html?v=733dc4236">Contact</a> <a href="../other/index.html?v=733dc4236" aria-current="page">Other</a></nav>
+</div></header>
+<main id="main" class="wrap page">
+<h1>Other</h1>
+<section id="game" class="paper experiment" aria-labelledby="game-title">
+<div class="game-text">
+<h2 id="game-title">The Preference Cycle</h2>
+<p>An economist asks you to rank three things. You ask whether lunch is included. The economist writes down your first preference.</p>
+<p>Transitivity makes a simple demand. If you prefer <i>A</i> to <i>B</i> and <i>B</i> to <i>C</i>, you should also prefer <i>A</i> to <i>C</i>. Let’s try it with six choices across two dilemmas.<sup aria-hidden="true">∗</sup></p>
+</div>
+<div id="round" class="margin-note" aria-live="polite"></div>
+<noscript>Enable JavaScript to play the game.</noscript>
+</section>
+<section id="coin" class="paper experiment" aria-labelledby="coin-title">
+<div class="game-text">
+<h2 id="coin-title">The Referee’s Coin</h2>
+<p>The coin is fair… or is it? I drew one of three coins from my desk drawer. One lands heads 40% of the time, one 50%, and one 60%. Each was equally likely to get picked.</p>
+<p>Flip as often as you like, then tell me whether your coin is fair. As usual, the referee would like one more observation.<sup aria-hidden="true">†</sup></p>
+</div>
+<div class="margin-note" id="coin-note">
+<p class="meta">The same coin stays on your desk until you give your verdict.</p>
+<button type="button" id="flip">Flip the coin</button>
+<p id="ledger" role="status"></p>
+<div id="verdict" hidden>
+<button type="button" data-fair="yes">I call it fair</button>
+<button type="button" data-fair="no">I call it biased</button>
+</div>
+<div id="finding" aria-live="polite"></div>
+<noscript>Enable JavaScript to play the game.</noscript>
+</div>
+</section>
+<div id="quote" class="paper reading"><p class="quote-label">My favourite quote in philosophy</p>
+<figure><blockquote>“He who has attained intellectual emancipation to any extent cannot, for a long time, regard himself otherwise than as a wanderer on the face of the earth—and not even as a traveller <em>towards</em> a final goal, for there is no such thing.”</blockquote>
+<figcaption>Friedrich Nietzsche, <cite>Human, All Too Human</cite>, vol. I<br><a href="https://www.gutenberg.org/files/51935/51935-h/51935-h.htm#:~:text=He%20who%20has%20attained%20intellectual%20emancipation">§638, “The Wanderer”</a></figcaption></figure></div>
+</main>
+<footer><div class="wrap">Fushi Wang · Boston University</div></footer>
+</body>
+</html>
